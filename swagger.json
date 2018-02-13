@@ -1,0 +1,50 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "REST API provided by ECS",
+    "version" : "0.2.0",
+    "title" : "ECS API v0.2.0",
+    "contact" : {
+      "name" : "Noah Talmadge",
+      "email" : "ntalmad1@uoregon.edu"
+    }
+  },
+  "host" : "api.pbisapps.org",
+  "schemes" : [ "https" ],
+  "consumes" : [ "application/json" ],
+  "produces" : [ "application/json" ],
+  "paths" : {
+    "/isalive" : {
+      "get" : {
+        "tags" : [ "v0.2.0" ],
+        "summary" : "Check IsAlive",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/DebugInfo"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "DebugInfo" : {
+      "type" : "object",
+      "properties" : {
+        "environment" : {
+          "type" : "string"
+        },
+        "dbName" : {
+          "type" : "string"
+        },
+        "dbServer" : {
+          "type" : "string"
+        }
+      },
+      "example" : "{\"environment\":\"dev\",\"dbName\":\"ECSDev\",\"dbServer\":\"db-ecs-dev.pbisapps.org\"}"
+    }
+  }
+}
